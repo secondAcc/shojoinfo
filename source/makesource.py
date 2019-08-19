@@ -39,7 +39,10 @@ def download():
     driver.find_element_by_css_selector('#js-repo-pjax-container > div.container-lg.clearfix.new-discussion-timeline.experiment-repo-nav.px-3 > div.repository-content > div.file-navigation.in-mid-page.d-flex.flex-items-start > details.get-repo-select-menu.js-get-repo-select-menu.position-relative.details-overlay.details-reset > summary').click()
     driver.find_element_by_css_selector('#js-repo-pjax-container > div.container-lg.clearfix.new-discussion-timeline.experiment-repo-nav.px-3 > div.repository-content > div.file-navigation.in-mid-page.d-flex.flex-items-start > details.get-repo-select-menu.js-get-repo-select-menu.position-relative.details-overlay.details-reset > div > div > div.get-repo-modal-options > div.mt-2 > a:nth-child(2)').click()
     zip=zipfile.ZipFile('C:\\Users\\dolph\Downloads\\shojoinfo-master.zip')
-    zip.extract('C:\\Users\\dolph\\Desktop\\web\\resources')
+    zip.extractall('C:\\Users\\dolph\\Desktop\\web\\resources')
+    file=('./shojoinfo-master/sourcefile.txt')
+    shutil.move(file,('./resources/sourcefile.txt'))
+    shutil.rmtree('./resources/shojoinfo-master')
 
 def extr():
     zip=zipfile.ZipFile('C:\\Users\\dolph\\Downloads\\shojoinfo-master.zip')
@@ -53,29 +56,32 @@ def clear():
     f=open(file,'r',encoding='UTF8')
     line=f.readlines()
     f.close()
-    check=0
     code=[]
     index=0
+    print("check")
     while index<len(line):
         if index%3==0:
             a=address()
             a.name(str(line[index]))
+            print(line[index])
         elif index%3==1:
             a.addr(str(line[index]))
+            print(line[index])
         elif index%3==2:
             code.append(a)
         index+=1
-    print(code)
     index=0
     f=open(file,'w',encoding='UTF8')
     while index<len(code):
-        i=code[index].name
+        i=str(code[index].name)
         if not("소녀전선 일반" in i or "소녀전선 0-" in i or "소녀전선 긴급" in i or "소녀전선 야간" in i):
-            code[index].name=0
+            code[index].name=str(0)
         index+=1
     for i in code:
-        f.write(i.name)
-        f.write(i.addr)
+        if(str(i.name)==str(0)):
+            continue
+        f.write(str(i.name))
+        f.write(str(i.addr))
         print(i.addr)
     f.close()
 
