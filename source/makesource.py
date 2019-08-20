@@ -38,7 +38,7 @@ def download():
     driver.get(url)
     driver.find_element_by_css_selector('#js-repo-pjax-container > div.container-lg.clearfix.new-discussion-timeline.experiment-repo-nav.px-3 > div.repository-content > div.file-navigation.in-mid-page.d-flex.flex-items-start > details.get-repo-select-menu.js-get-repo-select-menu.position-relative.details-overlay.details-reset > summary').click()
     driver.find_element_by_css_selector('#js-repo-pjax-container > div.container-lg.clearfix.new-discussion-timeline.experiment-repo-nav.px-3 > div.repository-content > div.file-navigation.in-mid-page.d-flex.flex-items-start > details.get-repo-select-menu.js-get-repo-select-menu.position-relative.details-overlay.details-reset > div > div > div.get-repo-modal-options > div.mt-2 > a:nth-child(2)').click()
-    zip=zipfile.ZipFile('C:\\Users\\dolph\Downloads\\shojoinfo-master.zip')
+    zip=zipfile.ZipFile('C:\\Users\\dolph\\Downloads\\shojoinfo-master.zip')
     zip.extractall('C:\\Users\\dolph\\Desktop\\web\\resources')
     file=('./shojoinfo-master/sourcefile.txt')
     shutil.move(file,('./resources/sourcefile.txt'))
