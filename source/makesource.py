@@ -43,7 +43,6 @@ def download():
     file=('./shojoinfo-master/sourcefile.txt')
     shutil.move(file,('./resources/sourcefile.txt'))
     shutil.rmtree('./resources/shojoinfo-master')
-    
 
 def extr():
     zip=zipfile.ZipFile('C:\\Users\\dolph\\Downloads\\shojoinfo-master.zip')
