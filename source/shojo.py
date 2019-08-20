@@ -34,9 +34,9 @@ class mypopup(QDialog):###새 탭###
     def init(self):
         print("check")
         btn=QPushButton("hi")
-        self.layout.addWidget(btn)
-        self.layout.addStretch(1)
-        self.setLayout(self.layout)
+        self.contentLayout.addWidget(btn)
+        self.contentLayout.addStretch(1)
+        self.setLayout(self.contentLayout)
 
 class findFightTab(QWidget):###세부지역탭###
     def __init__(self):
