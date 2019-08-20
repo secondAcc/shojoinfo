@@ -19,6 +19,7 @@ mainnum=0
 subnum=0
 tabmany=0
 timename=""
+fightName=""
 popupui='./uifiles/popupui.ui'
    
 
@@ -27,8 +28,10 @@ class mypopup(QDialog):###새 탭###
     def __init__(self):
         super().__init__()
         self.layout=QVBoxLayout()
-        self.setWindowTitle('QPushButton')
+        self.setWindowTitle(fightName)
+        print(fightName)
         uic.loadUi(popupui,self)
+        self.name=fightName
         self.init()
 
     def init(self):
@@ -37,6 +40,20 @@ class mypopup(QDialog):###새 탭###
             btn=QPushButton("hi")
             self.contentLayout.addWidget(btn)
             self.contentLayout.addStretch(1)
+        #self.name
+        url=""
+        index=0
+        while index<len(address):
+            if fightName in str(i):
+                url=str(address[index+1])
+                print("address catched")
+                break
+            index+=2
+        print(url)
+        wb.open(url)
+        self.fieldName.setText("    "+fightName)
+        #self.conditionName
+        self.layout.addWidget(self.fieldName)
         self.setLayout(self.contentLayout)
 
 class findFightTab(QWidget):###세부지역탭###
@@ -62,7 +79,10 @@ class findFightTab(QWidget):###세부지역탭###
 
     def newtab(self):
         a=self.sender().text()
+        print(a)
+        global fightName
         global tabmany###버튼 눌렀을 때 탭 생성함수 호출###
+        fightName=a
         self.w[tabmany]=mypopup()
         self.w[tabmany].show()
         tabmany+=1
