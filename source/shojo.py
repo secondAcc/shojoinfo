@@ -20,30 +20,7 @@ subnum=0
 tabmany=0
 timename=""
 popupui='./uifiles/popupui.ui'
-
-def gotolink(name):
-    find=""
-    if len(name)==3:
-        find+="일반 "
-    else:
-        a=name[3]
-        if a=="E":
-            find+="긴급 "
-        elif a=='N':
-            find+="야간 "
-    find+=name[0:3]
-    check=0
-    for i in address:
-        if find in i:
-            print(i)
-            check=1
-            break
-    if check==1:
-        print("yes")
-    else:
-        print("no")
-        
-    
+   
 
 
 class mypopup(QDialog):###새 탭###
@@ -71,7 +48,7 @@ class findFightTab(QWidget):###세부지역탭###
     def initUI(self):
         but=[]
         self.w=[]
-        for i in range(0,6):
+        for i in range(0,20):
             but.append(0)
             self.w.append(0)
         for i in range(0,6):
@@ -84,7 +61,6 @@ class findFightTab(QWidget):###세부지역탭###
 
     def newtab(self):
         a=self.sender().text()
-        gotolink(a)
         global tabmany###버튼 눌렀을 때 탭 생성함수 호출###
         self.w[tabmany]=mypopup()
         self.w[tabmany].show()
@@ -115,10 +91,7 @@ class makeOptionTab(QWidget):
         self.initui()
 
     def initui(self):
-        resourceButton=QPushButton("리소스 다운로드")
-        resourceButton.clicked.connect(self.resourceDownload)
-        self.layout.addWidget(resourceButton)
-        self.setLayout(self.layout)
+        print("hi")
 
     def resourceDownload(self): ###주소 소스파일 제작###
         f=open("./resources/address.txt","w")
@@ -128,35 +101,8 @@ class makeOptionTab(QWidget):
             line = []          
             line.append("")
             addr.append(line)
-        
-        for i in range(1,41):
-            url="https://jabjang.tistory.com/category/%EC%86%8C%EB%85%80%EC%A0%84%EC%84%A0?page="
-            url+=str(i)
-            driver.get(url)
-            html=driver.page_source
-            soup=bs(html,'html.parser')
-            name=soup.select("#body > ul > li > a")
-            for j in name:
-                ###이름###
-                start=str(j).find('>')+1
-                end=str(j).find('</a>')
-                addr[index]=str(j)[start:end]
-                index+=1
-
-                start=str(j).find('"')+1
-                end=str(j).find('>')-2
-                addr[index]="https://jabjang.tistory.com"
-                addr[index]+=str(j)[start:end]
-                index+=1
-                
-        for i in addr:
-            if i==['']:
-                break
-            f.write(str(i)+"\n")
-        f.close()
+    
             
-
-        
 class commonFightTab(QWidget):###지역탭###
     def __init__(self):
         super().__init__()
@@ -195,7 +141,7 @@ class MyApp(QDialog):
         self.show()
 
 
-f=open('./resources/address.txt','r')
+f=open('./resources/sourcefile.txt','r',encoding='UTF8')
 address=f.readlines()
 f.close()
 if __name__ == '__main__':
