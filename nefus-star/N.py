@@ -1,4 +1,4 @@
-a=int(input())
+a=int(input("only input odd!!\n"))
 for i in range(0,a):
     for j in  range(0,a-i):
         print(" ",end='')
