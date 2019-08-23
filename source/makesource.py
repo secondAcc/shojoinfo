@@ -85,6 +85,30 @@ def clear():
         print(i.addr)
     f.close()
 
+def newfile():
+    f=open('./resources/test.txt','w')
+    url="https://jabjang.tistory.com/category/소녀전선?page="
+    index=0
+    while True:
+        driver.get(url+str(index))
+        print(url+str(index))
+        html=driver.page_source
+        html=bs(html,'html.parser')
+        code=html.select('#body > ul > li > a')
+        if code==[]:
+            print("----all pages were cleared----")
+        for j in code:
+            line=str(j)
+            if not("소녀전선 일반" in line or "소녀전선 0" in line or "소녀전선 긴급" in line or "소녀전선 야간" in line):
+                continue
+            addr='https://jabjang.tistory.com'
+            addr+=line[line.find('"')+1:line.find('>')-1]
+            name=line[line.find('>')+1:line.find('</a')]
+            f.write(name+'\n')
+            f.write(addr+'\n')
+        index+=1
+    f.close()
+
 print("init end")
 code=''
 while code!='exit':
@@ -98,6 +122,10 @@ while code!='exit':
         download()
     elif code=='clear':
         clear()
+        print("test.txt created. if it's all, copy sourcefile.txt")
+        print("please add 0-")
+    elif code=='newfile':
+        newfile()
     else:
         print("no operate")
         continue

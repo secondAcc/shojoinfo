@@ -29,6 +29,7 @@ class mypopup(QDialog):###새 탭###
         self.layout=QVBoxLayout()
         self.setWindowTitle('QPushButton')
         uic.loadUi(popupui,self)
+        
         self.init()
 
     def init(self):
