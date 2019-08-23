@@ -31,11 +31,6 @@ class mypopup(QDialog):###새 탭###
         self.setWindowTitle(fightName)
         print(fightName)
         uic.loadUi(popupui,self)
-<<<<<<< HEAD:source/shojo.py
-        
-=======
-        self.name=fightName
->>>>>>> dd7f23ff3f57ab83cec1a2df5e441210d4fac6d3:shojo/source/shojo.py
         self.init()
 
     def init(self):
