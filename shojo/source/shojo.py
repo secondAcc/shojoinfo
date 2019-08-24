@@ -43,7 +43,16 @@ class mypopup(QDialog):###새 탭###
         url=""
         index=0
         while index<len(address):
-            if fightName in str(i):
+            search=""
+            if len(fightName)==fightName.find('-')+1:
+               pass
+            if fightName[fightName.find('-')+2]=='N':
+                search+="야간 "
+            elif fightName[fightName.find('-')+2]=='E':
+                search+="긴급 "
+            search+=fightName[0:fightName.find('-')+2]
+            print("find:",search)
+            if search in str(address[index]):
                 url=str(address[index+1])
                 print("address catched")
                 break
