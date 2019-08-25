@@ -44,11 +44,11 @@ class mypopup(QDialog):###새 탭###
         index=0
         while index<len(address):
             search=""
-            if len(fightName)==fightName.find('-')+1:
-               pass
-            elif fightName[fightName.find('-')+1]=='N':
+            if len(fightName)==fightName.find('-')+2:
+               search+="일반 "
+            elif fightName[fightName.find('-')+2]=='N':
                 search+="야간 "
-            elif fightName[fightName.find('-')+1]=='E':
+            elif fightName[fightName.find('-')+2]=='E':
                 search+="긴급 "
             search+=fightName[0:fightName.find('-')+2]
             print("find:",search)
