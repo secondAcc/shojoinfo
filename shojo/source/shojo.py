@@ -46,9 +46,9 @@ class mypopup(QDialog):###새 탭###
             search=""
             if len(fightName)==fightName.find('-')+1:
                pass
-            if fightName[fightName.find('-')+2]=='N':
+            elif fightName[fightName.find('-')+1]=='N':
                 search+="야간 "
-            elif fightName[fightName.find('-')+2]=='E':
+            elif fightName[fightName.find('-')+1]=='E':
                 search+="긴급 "
             search+=fightName[0:fightName.find('-')+2]
             print("find:",search)
@@ -68,7 +68,6 @@ class findFightTab(QWidget):###세부지역탭###
     def __init__(self):
         super().__init__()
         self.layout=QVBoxLayout()
-        #self.status=self.statusBar()
         self.initUI()
 
     def initUI(self):
@@ -77,7 +76,11 @@ class findFightTab(QWidget):###세부지역탭###
         for i in range(0,20):
             but.append(0)
             self.w.append(0)
-        for i in range(0,6):
+        if firsttab==True:
+            max=4
+        else:
+            max=6
+        for i in range(0,max):
             self.name=(str(mainnum)+"-"+str(i+1)+timename)
             but[i]=QPushButton(self.name) ###버튼 제작###
             but[i].clicked.connect(self.newtab)
@@ -141,9 +144,12 @@ class commonFightTab(QWidget):###지역탭###
 
     def initUI(self):
         global mainnum
-        for i in range(0,13):
+        global firsttab
+        firsttab=True
+        for i in range(0,12):
             mainnum=i
             self.tabs.addTab(makeTab(),str(i))
+            firsttab=False
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
             

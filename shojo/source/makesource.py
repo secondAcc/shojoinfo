@@ -109,6 +109,25 @@ def newfile():
         index+=1
     f.close()
 
+def test():
+    url="https://jabjang.tistory.com/478"
+    driver.get(url)
+    html=driver.page_source
+    html=bs(html,'html.parser')
+    for box in range(0,69):
+        for line in range(0,8): 
+            for i in range(1,5):
+                select='div.tt_article_useless_p_margin > div:nth-child(%s) > table > tbody > tr:nth-child(%s) > td:nth-child('%(box,line)
+                select+=str(i)
+                select+=') > p > a'
+                find=html.select(select)
+                for i in find:
+                    search=str(i)
+                    name=search[search.find('-')-1:search.find('')]
+                    addr=search[search.find('"'):search.find('" target')-1]
+                    print("---start---")
+                    print(i,end='\n')
+                    print("---end---")
 print("init end")
 code=''
 while code!='exit':
@@ -126,6 +145,7 @@ while code!='exit':
         print("please add 0-")
     elif code=='newfile':
         newfile()
+    elif code=='test':
+        test()
     else:
         print("no operate")
-        continue
