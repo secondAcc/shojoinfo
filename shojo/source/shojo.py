@@ -42,6 +42,7 @@ class mypopup(QDialog):###새 탭###
         #self.name
         url=""
         index=0
+        addrCatch=False
         while index<len(address):
             search=""
             if len(fightName)==fightName.find('-')+1:
@@ -51,12 +52,14 @@ class mypopup(QDialog):###새 탭###
             elif fightName[fightName.find('-')+1]=='E':
                 search+="긴급 "
             search+=fightName[0:fightName.find('-')+2]
-            print("find:",search)
             if search in str(address[index]):
                 url=str(address[index+1])
                 print("address catched")
+                addrCatch=True
                 break
             index+=2
+        #if addrCatch==False:
+            
         print(url)
         wb.open(url)
         self.fieldName.setText("    "+fightName)
