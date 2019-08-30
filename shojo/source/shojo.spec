@@ -2,33 +2,34 @@
 
 block_cipher = None
 
+
 a = Analysis(['shojo.py'],
-    pathex=['D:\\shojoinfo\\shojo\\source'],
-    binaries=[],
-    datas=[('D:\\shojoinfo\\shojo\\resources','./resources'),
-            ('D:\\shojoinfo\\shojo\\programs','./subprograms'),
-            ('D:\\shojoinfo\\shojo\\uifiles','./uifiles')],
-    hiddenimports=[],
-    hookspath=[],
-    runtime_hooks=[],
-    excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
-    cipher=block_cipher)
+        pathex=['D:\\python\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\shojoinfo\\shojo\\source'],
+        binaries=[],
+        datas=[(r'D:\shojoinfo\shojo\programs','./programs'),
+                (r'D:\shojoinfo\shojo\resources','./resources'),
+                (r'D:\shojoinfo\shojo\uifiles','./uifiles')],
+        hiddenimports=[],
+        hookspath=[],
+        runtime_hooks=[],
+        excludes=[],
+        win_no_prefer_redirects=False,
+        win_private_assemblies=False,
+        cipher=block_cipher,
+        noarchive=False)
 pyz = PYZ(a.pure, a.zipped_data,
-    cipher=block_cipher)
+             cipher=block_cipher)
 exe = EXE(pyz,
- a.scripts,
- exclude_binaries=True,
- name='run',
- debug=False,
- strip=False,
- upx=True,
- console=False )
-coll = COLLECT(exe,
-      a.binaries,
-      a.zipfiles,
-      a.datas,
-      strip=False,
-      upx=True,
-      name='run')
+          a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+          [],
+          name='shojo',
+          debug=False,
+          bootloader_ignore_signals=False,
+          strip=False,
+          upx=True,
+          upx_exclude=[],
+          runtime_tmpdir=None,
+          console=False )
