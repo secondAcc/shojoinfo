@@ -9,7 +9,6 @@ from selenium import webdriver
 import requests
 import webbrowser as wb
 
-###chromedriver setting###
 ###폴더주소 구하기###
 pwd=str(os.getcwd())
 pwd=pwd.replace("\source",'')
@@ -22,6 +21,7 @@ timename=""
 fightName=""
 popupui=pwd+'./uifiles/popupui.ui'
 
+###chromedriver setting###
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 options.add_argument('window-size=1920x1080')
@@ -48,7 +48,7 @@ class mypopup(QDialog):###새 탭###
         #self.name
         url=""
         index=0
-        #addrCatch=False
+        addrCatch=False
         while index<len(address):
             search=""
             if len(fightName)==fightName.find('-')+2:
@@ -64,6 +64,15 @@ class mypopup(QDialog):###새 탭###
                 addrCatch=True
                 break
             index+=2
+        if addrCatch==False:
+            print("no file")
+            msg=QMessageBox()
+            msg.setWindowTitle("Error!")
+            msg.setText("%s의 맵 파일이 없습니다!"%search)
+            msg.setStandardButtons(QMessageBox.Cancel)
+            result=msg.exec_()
+            if result==QMessageBox.Cancel:
+                return
         #if addrCatch==False:
             
         print(url)
@@ -103,8 +112,10 @@ class findFightTab(QWidget):###세부지역탭###
         global fightName
         global tabmany###버튼 눌렀을 때 탭 생성함수 호출###
         fightName=a
+        
         self.w[tabmany]=mypopup()
-        self.w[tabmany].show()
+        #self.w[tabmany].show()
+        
         tabmany+=1
 class makeTab(QWidget):###난이도탭###
     def __init__(self):
