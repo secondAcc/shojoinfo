@@ -1,4 +1,5 @@
 import sys
+import os
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -9,18 +10,23 @@ import requests
 import webbrowser as wb
 
 ###chromedriver setting###
-options = webdriver.ChromeOptions()
-options.add_argument('headless')
-options.add_argument('window-size=1920x1080')
-options.add_argument("disable-gpu")
-driver=webdriver.Chrome("./programs/chromedriver.exe",chrome_options=options)
+###폴더주소 구하기###
+pwd=str(os.getcwd())
+pwd=pwd.replace("\source",'')
+pwd=pwd.replace('\\','/') 
 
 mainnum=0
 subnum=0
 tabmany=0
 timename=""
 fightName=""
-popupui='./uifiles/popupui.ui'
+popupui=pwd+'./uifiles/popupui.ui'
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.add_argument("disable-gpu")
+driver=webdriver.Chrome(executable_path=pwd+"/programs/chromedriver.exe",chrome_options=options)
    
 
 
@@ -42,7 +48,7 @@ class mypopup(QDialog):###새 탭###
         #self.name
         url=""
         index=0
-        addrCatch=False
+        #addrCatch=False
         while index<len(address):
             search=""
             if len(fightName)==fightName.find('-')+2:
@@ -129,7 +135,8 @@ class makeOptionTab(QWidget):
         print("hi")
 
     def resourceDownload(self): ###주소 소스파일 제작###
-        f=open("./resources/address.txt","w")
+        fi=pwd+"/resources/address.txt"
+        f=open(fi,"w")
         addr = []    # 빈 리스트 생성
         index=0
         for i in range(2000):
@@ -178,10 +185,11 @@ class MyApp(QDialog):
         self.resize(650,650)
         self.show()
 
-
-f=open('./resources/sourcefile.txt','r',encoding='UTF8')
+fi=pwd+"/resources/sourcefile.txt"
+f=open(fi,'r',encoding='UTF8')
 address=f.readlines()
 f.close()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyApp()
