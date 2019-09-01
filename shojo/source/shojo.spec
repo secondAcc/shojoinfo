@@ -4,10 +4,10 @@ block_cipher = None
 
 
 a = Analysis(['shojo.py'],
-             pathex=['D:\\python\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\shojoinfo\\shojo\\source'],
+             pathex=['D:\\python\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\python\\Lib', 'D:\\shojoinfo\\shojo\\source'],
              binaries=[],
              datas=[],
-             hiddenimports=[r'D:\python\Lib\venv\scripts\posix'],
+             hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
@@ -27,7 +27,7 @@ exe = EXE(pyz,
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
-          upx=False,
+          upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
           console=False )
