@@ -1,0 +1,70 @@
+PS D:\shojoinfo\shojo\source> pyinstaller -w -F .\shojo.py
+93 INFO: PyInstaller: 3.5
+93 INFO: Python: 3.7.4
+94 INFO: Platform: Windows-10-10.0.16299-SP0
+99 INFO: wrote D:\shojoinfo\shojo\source\shojo.spec
+100 INFO: UPX is not available.
+103 INFO: Extending PYTHONPATH with paths
+['D:\\shojoinfo\\shojo\\source', 'D:\\shojoinfo\\shojo\\source']
+104 INFO: checking Analysis
+104 INFO: Building Analysis because Analysis-00.toc is non existent
+104 INFO: Initializing module dependency graph...
+107 INFO: Initializing module graph hooks...
+109 INFO: Analyzing base_library.zip ...
+3516 INFO: running Analysis Analysis-00.toc
+3537 INFO: Adding Microsoft.Windows.Common-Controls to dependent assemblies of final executable
+  required by d:\python\python.exe
+4393 INFO: Caching module hooks...
+4403 INFO: Analyzing D:\shojoinfo\shojo\source\shojo.py
+4556 INFO: Processing pre-find module path hook   PyQt5.uic.port_v3
+4587 INFO: Processing pre-find module path hook   PyQt5.uic.port_v2
+5952 INFO: Processing pre-safe import module hook   urllib3.packages.six.moves
+8086 INFO: Processing pre-safe import module hook   six.moves
+9060 INFO: Loading module hooks...
+9060 INFO: Loading module hook "hook-certifi.py"...
+9062 INFO: Loading module hook "hook-cryptography.py"...
+9397 INFO: Loading module hook "hook-encodings.py"...
+9481 INFO: Loading module hook "hook-pydoc.py"...
+9482 INFO: Loading module hook "hook-PyQt5.py"...
+9610 WARNING: Hidden import "sip" not found!
+9610 INFO: Loading module hook "hook-PyQt5.QtCore.py"...
+10130 INFO: Loading module hook "hook-PyQt5.QtGui.py"...
+11192 INFO: Loading module hook "hook-PyQt5.QtWidgets.py"...
+12299 INFO: Loading module hook "hook-PyQt5.uic.py"...
+12302 INFO: Loading module hook "hook-selenium.py"...
+12311 INFO: Loading module hook "hook-xml.dom.domreg.py"...
+12312 INFO: Loading module hook "hook-xml.etree.cElementTree.py"...
+12314 INFO: Loading module hook "hook-xml.py"...
+12345 INFO: Looking for ctypes DLLs
+12354 INFO: Analyzing run-time hooks ...
+12372 INFO: Including run-time hook 'pyi_rth_certifi.py'
+12374 INFO: Including run-time hook 'pyi_rth_pyqt5.py'
+12388 INFO: Looking for dynamic libraries
+22225 INFO: Looking for eggs
+22225 INFO: Using Python library d:\python\python37.dll
+22227 INFO: Found binding redirects:
+[]
+22240 INFO: Warnings written to D:\shojoinfo\shojo\source\build\shojo\warn-shojo.txt
+22374 INFO: Graph cross-reference written to D:\shojoinfo\shojo\source\build\shojo\xref-shojo.html
+22431 INFO: checking PYZ
+22431 INFO: Building PYZ because PYZ-00.toc is non existent
+22432 INFO: Building PYZ (ZlibArchive) D:\shojoinfo\shojo\source\build\shojo\PYZ-00.pyz
+23517 INFO: Building PYZ (ZlibArchive) D:\shojoinfo\shojo\source\build\shojo\PYZ-00.pyz completed successfully.
+23544 INFO: checking PKG
+23544 INFO: Building PKG because PKG-00.toc is non existent
+23544 INFO: Building PKG (CArchive) PKG-00.pkg
+23785 WARNING: One binary added with two internal names.
+23786 WARNING: ('libGLESv2.dll',
+ 'D:\\python\\lib\\site-packages\\PyQt5\\Qt\\bin\\libGLESv2.dll',
+ 'BINARY')
+23786 WARNING: was placed previously at
+23787 WARNING: ('PyQt5\\Qt\\bin\\libGLESv2.dll',
+ 'D:\\python\\lib\\site-packages\\PyQt5\\Qt\\bin\\libGLESv2.dll',
+ 'BINARY')
+33075 INFO: Building PKG (CArchive) PKG-00.pkg completed successfully.
+33085 INFO: Bootloader d:\python\lib\site-packages\PyInstaller\bootloader\Windows-32bit\runw.exe
+33085 INFO: checking EXE
+33085 INFO: Building EXE because EXE-00.toc is non existent
+33086 INFO: Building EXE from EXE-00.toc
+33086 INFO: Appending archive to EXE D:\shojoinfo\shojo\source\dist\shojo.exe
+33313 INFO: Building EXE from EXE-00.toc completed successfully.
