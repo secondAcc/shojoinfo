@@ -1,0 +1,9 @@
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.exe.config
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.exe
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.pdb
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csprojResolveAssemblyReference.cache
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Form1.resources
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Properties.Resources.resources
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csproj.GenerateResource.Cache
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.exe
+C:\Users\Sunrin\Desktop\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.pdb
