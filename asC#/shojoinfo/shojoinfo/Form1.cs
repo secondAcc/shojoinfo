@@ -16,18 +16,17 @@ namespace shojoinfo
         public Form1()
         {
             InitializeComponent();
-            main();
+            makecommonfightTabs();
         }
-        public void main()
+        
+        private void makecommonfightTabs()
         {
-
-        }
-        private void makeTabs()
-        {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 12; i++)
             {
-                TabPage tab = new TabPage("hello");
-                this.tabControl1.Controls.Add(tab);
+                string name = i.ToString();
+                Console.Write("*" + name + "*\n");
+                TabPage tab = new TabPage("h");
+                this.commonfightTabControl.Controls.Add(tab);
             }
             Console.Write("make check");
         }

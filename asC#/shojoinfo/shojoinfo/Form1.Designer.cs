@@ -35,7 +35,7 @@ namespace shojoinfo
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.commonfightTabControl = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -54,7 +54,7 @@ namespace shojoinfo
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(343, 445);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 488);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tabControl1
@@ -67,7 +67,7 @@ namespace shojoinfo
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(337, 439);
+            this.tabControl1.Size = new System.Drawing.Size(369, 482);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -76,7 +76,7 @@ namespace shojoinfo
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(329, 413);
+            this.tabPage1.Size = new System.Drawing.Size(361, 456);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "전역";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -100,30 +100,30 @@ namespace shojoinfo
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tabControl2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.commonfightTabControl, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(320, 407);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(352, 450);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tabControl2
+            // commonfightTabControl
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.commonfightTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(314, 401);
-            this.tabControl2.TabIndex = 0;
+            this.commonfightTabControl.Location = new System.Drawing.Point(3, 3);
+            this.commonfightTabControl.Name = "commonfightTabControl";
+            this.commonfightTabControl.SelectedIndex = 0;
+            this.commonfightTabControl.Size = new System.Drawing.Size(346, 444);
+            this.commonfightTabControl.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 446);
+            this.ClientSize = new System.Drawing.Size(376, 489);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -143,7 +143,7 @@ namespace shojoinfo
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TableLayoutPanel tableLayoutPanel2;
-        private TabControl tabControl2;
+        private TabControl commonfightTabControl;
     }
 }
 
