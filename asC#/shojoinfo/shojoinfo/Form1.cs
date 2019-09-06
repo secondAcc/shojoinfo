@@ -11,19 +11,6 @@ using System.Windows.Forms;
 
 namespace shojoinfo
 {
-    public class howhard:TabControl
-    {
-        public howhard()
-        {
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            this.ResumeLayout(false);
-
-        }
-    }
     public partial class Form1 : Form
     {
         public Form1()
@@ -31,7 +18,20 @@ namespace shojoinfo
             InitializeComponent();
             makecommonfightTabs();
         }
-        
+        public class howhard : TabControl
+        {
+            public howhard()
+            {
+            }
+
+            private void InitializeComponent()
+            {
+                this.SuspendLayout();
+                this.ResumeLayout(false);
+
+            }
+        }
+
         private void makecommonfightTabs()
         {
 
