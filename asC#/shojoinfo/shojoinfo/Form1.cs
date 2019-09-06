@@ -13,6 +13,7 @@ namespace shojoinfo
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -20,15 +21,19 @@ namespace shojoinfo
         }
         public class howhard : TabControl
         {
+
             public howhard()
             {
+
+                this.tab = new System.Windows.Forms.TabPage();
+                this.a = new TabPage("check");
+                //howhard.Controls.Add(a);
             }
 
             private void InitializeComponent()
             {
                 this.SuspendLayout();
                 this.ResumeLayout(false);
-
             }
         }
 
