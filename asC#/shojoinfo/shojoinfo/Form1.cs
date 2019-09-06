@@ -34,13 +34,14 @@ namespace shojoinfo
         
         private void makecommonfightTabs()
         {
+
             for (int i = 0; i < 12; i++)
             {
                 string name = i.ToString();
                 TabPage tab = new TabPage(i.ToString());
                 howhard hardtab = new howhard();
                 tab.Controls.Add(hardtab);
-                hardtab.Location = new Point(3, 4);
+                hardtab.Location = new Point(1, 1);
                 hardtab.Size = new System.Drawing.Size(443, 564);
                 this.commonfightTabControl.Controls.Add(tab);
             }
