@@ -24,8 +24,7 @@ namespace shojoinfo
             for (int i = 0; i < 12; i++)
             {
                 string name = i.ToString();
-                Console.Write("*" + name + "*\n");
-                TabPage tab = new TabPage("h");
+                TabPage tab = new TabPage(i.ToString());
                 this.commonfightTabControl.Controls.Add(tab);
             }
             Console.Write("make check");
