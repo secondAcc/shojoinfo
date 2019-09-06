@@ -11,9 +11,9 @@ D:\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.exe.config
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.exe
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\bin\Debug\shojoinfo.pdb
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csprojAssemblyReference.cache
-D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Form1.resources
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Properties.Resources.resources
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csproj.GenerateResource.cache
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csproj.CoreCompileInputs.cache
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.exe
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.pdb
+D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.howhard.resources
