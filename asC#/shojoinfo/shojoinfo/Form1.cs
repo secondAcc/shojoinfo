@@ -24,16 +24,11 @@ namespace shojoinfo
 
             public howhard()
             {
-
-                this.tab = new System.Windows.Forms.TabPage();
-                this.a = new TabPage("check");
-                //howhard.Controls.Add(a);
-            }
-
-            private void InitializeComponent()
-            {
-                this.SuspendLayout();
-                this.ResumeLayout(false);
+                this.SuspendLayout();               
+                TabControl tabcontrol = new TabControl();
+                TabPage a = new TabPage("check");
+                tabcontrol.Controls.Add(a);
+                tabcontrol.ResumeLayout(false);
             }
         }
 
