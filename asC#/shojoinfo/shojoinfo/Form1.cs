@@ -33,6 +33,11 @@ namespace shojoinfo
             {
                 this.SuspendLayout();
                 this.ResumeLayout(false);
+                this.SuspendLayout();               
+                TabControl tabcontrol = new TabControl();
+                TabPage a = new TabPage("check");
+                tabcontrol.Controls.Add(a);
+                tabcontrol.ResumeLayout(false);
             }
         }
 
