@@ -24,10 +24,9 @@ namespace shojoinfo
 
             public howhard()
             {
-
-                this.tab = new System.Windows.Forms.TabPage();
-                this.a = new TabPage("check");
-                //howhard.Controls.Add(a);
+                Console.WriteLine("howhard checked");
+                TabPage tab = new System.Windows.Forms.TabPage();
+                TabPage a = new TabPage("check");                
             }
 
             private void InitializeComponent()
