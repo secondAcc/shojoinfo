@@ -2,7 +2,7 @@
 
 namespace shojoinfo
 {
-    partial class Form1
+    partial class Shojoinfo
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -64,6 +64,7 @@ namespace shojoinfo
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.tabControl1.ItemSize = new System.Drawing.Size(50, 21);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
@@ -77,7 +78,7 @@ namespace shojoinfo
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(391, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "전역";
@@ -117,20 +118,20 @@ namespace shojoinfo
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(392, 469);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(391, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "option";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Shojoinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 505);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Shojoinfo";
+            this.Text = "Shojoinfo";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
