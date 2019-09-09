@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,7 +28,32 @@ namespace shojoinfo
         {
             private void buttonEvent(object sender, EventArgs e)
             {
-                System.Diagnostics.Process.Start("https://naver.com");
+                var s = (Button)sender;
+                string buttonName = s.Text;                
+                string search = "";
+                if (buttonName[0] != '0')
+                {
+                    if (buttonName.IndexOf('-') + 2 == buttonName.Length)
+                        search += "일반 ";
+                    else if (buttonName[buttonName.IndexOf('-') + 2] == 'N')
+                        search += "야간 ";
+                    else if (buttonName[buttonName.IndexOf('-') + 2] == 'E')
+                        search += "긴급 ";
+                }
+                else
+                    search += "소녀전선 ";
+                for (int i = 0; i < buttonName.IndexOf('-') + 2; i++)
+                    search += buttonName[i];
+                Console.WriteLine("*"+search);
+                string[] address = File.ReadAllLines(@"./resources/sourcefile.txt");
+                for(int i=0;i<address.Length;i++)
+                {
+                    if(address[i].Contains(search))
+                    {
+                        System.Diagnostics.Process.Start(address[i + 1]);
+                        break;
+                    }
+                }
             }
             public level(string name)
             {
@@ -81,7 +107,6 @@ namespace shojoinfo
                 level tab = new level(name);
                 commonfightTabControl.Controls.Add(tab);
             }
-            Console.Write("make check");
         }
     }
 }
