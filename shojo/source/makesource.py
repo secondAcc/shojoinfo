@@ -123,10 +123,12 @@ def test():
                 find=html.select(select)
                 for i in find:
                     search=str(i)
-                    name=search[search.find('-')-1:search.find('')]
-                    addr=search[search.find('"'):search.find('" target')-1]
+                    name=search[search.find('217);>'):search.find('</span')]
+                    addr=search[search.find('"'):search.find('" target')+1]
+                    addr=addr[addr.find('"'):addr.find('" style')]
                     print("---start---")
-                    print(i,end='\n')
+                    print(addr);
+                    #print(name+addr);
                     print("---end---")
 print("init end")
 code=''
