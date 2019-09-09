@@ -13,6 +13,10 @@ namespace shojoinfo
 {
     public partial class Shojoinfo : Form
     {
+        public void openurl()
+        {
+            
+        }
 
         public Shojoinfo()
         {
@@ -21,6 +25,10 @@ namespace shojoinfo
         }
         public class level:TabPage
         {
+            private void buttonEvent(object sender, EventArgs e)
+            {
+                System.Diagnostics.Process.Start("https://naver.com");
+            }
             public level(string name)
             {
                 TableLayoutPanel layout = new TableLayoutPanel();
@@ -52,6 +60,7 @@ namespace shojoinfo
                         }
                         a.Text = buttonname;
                         a.Size = new Size(80, 30);
+                        a.Click += buttonEvent;
                         layout.Controls.Add(a);
                     }
                 }
@@ -59,14 +68,13 @@ namespace shojoinfo
                 layout.Location = new Point(50, 40);
                 Controls.Add(layout);
             }
-        }
 
+        }
         /// <summary>
         /// 지역 탭
         /// </summary>
         private void makecommonfightTabs()
         {
-
             for (int i = 0; i < 12; i++)
             {
                 string name = i.ToString();

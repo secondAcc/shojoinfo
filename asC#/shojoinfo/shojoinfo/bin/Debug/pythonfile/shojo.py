@@ -22,7 +22,7 @@ def setupdriver():
     options.add_argument("disable-gpu")
     driver=webdriver.Chrome(executable_path=pwd+"/programs/chromedriver.exe",chrome_options=options)
 ###map site open###
-def showmap():
+def showmap(fightName):
     url=""
     index=0
     addrCatch=False
@@ -35,6 +35,7 @@ def showmap():
         elif fightName[fightName.find('-')+2]=='E':
             search+="긴급 "
         search+=fightName[0:fightName.find('-')+2]
+        print(search)
         if search in str(address[index]):
             url=str(address[index+1])
             print("address catched")
@@ -42,16 +43,15 @@ def showmap():
             break
         index+=2
     if addrCatch==False:
+        print("no source fiel")
         return -1
         
     print(url)
     wb.open(url)
-    self.fieldName.setText("    "+fightName)
-    #self.conditionName
-    self.layout.addWidget(self.fieldName)
-    self.setLayout(self.contentLayout)
 
 fi=pwd+"/resources/sourcefile.txt"
 f=open(fi,'r',encoding='UTF8')
 address=f.readlines()
 f.close()
+print(address)
+showmap("9-4E")
