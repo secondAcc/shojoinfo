@@ -114,20 +114,26 @@ def test():
     driver.get(url)
     html=driver.page_source
     html=bs(html,'html.parser')
+    
     for box in range(0,69):
         for line in range(0,8): 
             for i in range(1,5):
-                select='div.tt_article_useless_p_margin > div:nth-child(%s) > table > tbody > tr:nth-child(%s) > td:nth-child('%(box,line)
+                #select='div.tt_article_useless_p_margin > div:nth-child(%s) > table > tbody > tr:nth-child(%s) > td:nth-child('%(box,line)
+                select='div.article > div.tt_article_useless_p_margin > div > table > tbody'
+                '''
                 select+=str(i)
                 select+=') > p > a'
-                find=html.select(select)
+                '''
+                find=str(html.select(select))
+                print(find[:find.find('<th>')])
+                return 0
                 for i in find:
                     search=str(i)
-                    name=search[search.find('217);>'):search.find('</span')]
+                    name=search[search.find(');">')+4:search.find('</span')]
                     addr=search[search.find('"'):search.find('" target')+1]
                     addr=addr[addr.find('"'):addr.find('" style')]
                     print("---start---")
-                    print(addr);
+                    print("name:"+name)
                     #print(name+addr);
                     print("---end---")
 print("init end")
