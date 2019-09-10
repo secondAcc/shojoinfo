@@ -47,7 +47,7 @@ def download():
     driver.find_element_by_css_selector(
         '#js-repo-pjax-container > div.container-lg.clearfix.new-discussion-timeline.experiment-repo-nav.px-3 > div.repository-content > div.file-navigation.in-mid-page.d-flex.flex-items-start > details.get-repo-select-menu.js-get-repo-select-menu.position-relative.details-overlay.details-reset > div > div > div.get-repo-modal-options > div.mt-2 > a:nth-child(2)').click()
     zip = zipfile.ZipFile('C:\\Users\\dolph\\Downloads\\shojoinfo-master.zip')
-    zip.extractall('C:\\Users\\dolph\\Desktop\\web\\resources')
+    zip.extractall('C:\\Users\\dolph\\Desktaop\\web\\resources')
     file = ('./shojoinfo-master/sourcefile.txt')
     shutil.move(file, ('./resources/sourcefile.txt'))
     shutil.rmtree('./resources/shojoinfo-master')
@@ -96,58 +96,31 @@ def clear():
     f.close()
 
 
+class newfile_info():
+    def __init__(self,l):
+        self.name = ""
+        self.addr = ""
+        self.text = l
+
+    def init(self):
+        self.text = self.text[:self.text.find('<th>')]
+        self.text = self.text[self.text.find('MIDNIGHT'):]
+    def clear(self):
+        self.text=self.text[self.text.find('href'):]
+        print(self.text)
+        self.addr=self.text[self.text.find('"'):self.text.find('" target')]
+        self.text = self.text[self.text.find('href'):]
 def newfile():
-    f = open('./resources/test.txt', 'w')
-    url = "https://jabjang.tistory.com/category/소녀전선?page="
-    index = 0
-    while True:
-        driver.get(url + str(index))
-        print(url + str(index))
-        html = driver.page_source
-        html = bs(html, 'html.parser')
-        code = html.select('#body > ul > li > a')
-        if code == []:
-            print("----all pages were cleared----")
-        for j in code:
-            line = str(j)
-            if not ("소녀전선 일반" in line or "소녀전선 0" in line or "소녀전선 긴급" in line or "소녀전선 야간" in line):
-                continue
-            addr = 'https://jabjang.tistory.com'
-            addr += line[line.find('"') + 1:line.find('>') - 1]
-            name = line[line.find('>') + 1:line.find('</a')]
-            f.write(name + '\n')
-            f.write(addr + '\n')
-        index += 1
-    f.close()
-
-
-def test():
     url = "https://jabjang.tistory.com/478"
     driver.get(url)
     html = driver.page_source
     html = bs(html, 'html.parser')
 
-    for box in range(0, 69):
-        for line in range(0, 8):
-            for i in range(1, 5):
-                # select='div.tt_article_useless_p_margin > div:nth-child(%s) > table > tbody > tr:nth-child(%s) > td:nth-child('%(box,line)
-                select = 'div.article > div.tt_article_useless_p_margin > div > table > tbody'
-                '''
-                select+=str(i)
-                select+=') > p > a'
-                '''
-                find = str(html.select(select))
-                print(find[:find.find('<th>')])
-                return 0
-                for i in find:
-                    search = str(i)
-                    name = search[search.find(');">') + 4:search.find('</span')]
-                    addr = search[search.find('"'):search.find('" target') + 1]
-                    addr = addr[addr.find('"'):addr.find('" style')]
-                    print("---start---")
-                    print("name:" + name)
-                    # print(name+addr);
-                    print("---end---")
+    select = 'div.article > div.tt_article_useless_p_margin > div > table > tbody'
+    find = newfile_info(str(html.select(select)))
+    find.init()
+    find.clear()
+    print(find.text)
 
 
 print("init end")
@@ -167,7 +140,5 @@ while code != 'exit':
         print("please add 0-")
     elif code == 'newfile':
         newfile()
-    elif code == 'test':
-        test()
     else:
         print("no operate")
