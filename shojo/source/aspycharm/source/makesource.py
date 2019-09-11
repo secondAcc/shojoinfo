@@ -105,13 +105,19 @@ class newfile_info():
     def init(self):
         self.text = self.text[:self.text.find('<th>')]
         self.text = self.text[self.text.find('MIDNIGHT'):]
-
     def clear(self):
         self.text = self.text[self.text.find('href'):]
-        self.addr = self.text[self.text.find('"'):self.text.find('" target')]
+        print(self.text)
+
+        self.addr = self.text[self.text.find('"'):self.text.find('" target')+1]
         self.addr = self.addr[self.addr.find('"'):self.addr.find('" style')]
+
+        #while self.text.find('217);">') not 1:
         self.text = self.text[self.text.find('217);">') + 7:]
-        self.text = self.text[self.text.find('217);">') + 7:]
+        if self.text[3]!='E':
+            self.text = self.text[self.text.find('217);">') + 7:]
+            self.text = self.text[self.text.find('217);">') + 7:]
+        print("text :"+self.text)
         self.name = self.text[:self.text.find('</')]
 
 
@@ -126,9 +132,16 @@ def newfile():
     find.init()
     while find.text.find('href') != -1:
         find.clear()
-        print(find.name + find.addr)
+        print("name :"+find.name + find.addr)
 
+def test():
+    url="https://jabjang.tistory.com/478"
+    driver.get(url)
+    html = driver.page_source
+    html = bs(html, 'html.parser')
 
+    select ='div.article > div.tt_article_useless_p_margin'
+    print(html.select(select))
 print("init end")
 code = ''
 while code != 'exit':
@@ -146,5 +159,7 @@ while code != 'exit':
         print("please add 0-")
     elif code == 'newfile':
         newfile()
+    elif code=='test':
+        test()
     else:
         print("no operate")
