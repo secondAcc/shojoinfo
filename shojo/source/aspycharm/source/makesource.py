@@ -97,7 +97,7 @@ def clear():
 
 
 class newfile_info():
-    def __init__(self,l):
+    def __init__(self, l):
         self.name = ""
         self.addr = ""
         self.text = l
@@ -105,11 +105,16 @@ class newfile_info():
     def init(self):
         self.text = self.text[:self.text.find('<th>')]
         self.text = self.text[self.text.find('MIDNIGHT'):]
+
     def clear(self):
-        self.text=self.text[self.text.find('href'):]
-        print(self.text)
-        self.addr=self.text[self.text.find('"'):self.text.find('" target')]
         self.text = self.text[self.text.find('href'):]
+        self.addr = self.text[self.text.find('"'):self.text.find('" target')]
+        self.addr = self.addr[self.addr.find('"'):self.addr.find('" style')]
+        self.text = self.text[self.text.find('217);">') + 7:]
+        self.text = self.text[self.text.find('217);">') + 7:]
+        self.name = self.text[:self.text.find('</')]
+
+
 def newfile():
     url = "https://jabjang.tistory.com/478"
     driver.get(url)
@@ -119,8 +124,9 @@ def newfile():
     select = 'div.article > div.tt_article_useless_p_margin > div > table > tbody'
     find = newfile_info(str(html.select(select)))
     find.init()
-    find.clear()
-    print(find.text)
+    while find.text.find('href') != -1:
+        find.clear()
+        print(find.name + find.addr)
 
 
 print("init end")
