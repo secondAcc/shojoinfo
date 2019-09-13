@@ -29,26 +29,13 @@ namespace shojoinfo
             private void buttonEvent(object sender, EventArgs e)
             {
                 var s = (Button)sender;
-                string buttonName = s.Text;                
-                string search = "";
-                if (buttonName[0] != '0')
+                string buttonName = s.Text;
+                Console.WriteLine(buttonName);
+                string[] address = File.ReadAllLines(@"./resources/resource.txt");
+                for(int i=0;i<address.Length;i+=2)
                 {
-                    if (buttonName.IndexOf('-') + 2 == buttonName.Length)
-                        search += "일반 ";
-                    else if (buttonName[buttonName.IndexOf('-') + 2] == 'N')
-                        search += "야간 ";
-                    else if (buttonName[buttonName.IndexOf('-') + 2] == 'E')
-                        search += "긴급 ";
-                }
-                else
-                    search += "소녀전선 ";
-                for (int i = 0; i < buttonName.IndexOf('-') + 2; i++)
-                    search += buttonName[i];
-                Console.WriteLine("*"+search);
-                string[] address = File.ReadAllLines(@"./resources/sourcefile.txt");
-                for(int i=0;i<address.Length;i++)
-                {
-                    if(address[i].Contains(search))
+                    Console.WriteLine(address[i]);
+                    if(address[i].Contains(buttonName))
                     {
                         System.Diagnostics.Process.Start(address[i + 1]);
                         break;
@@ -72,22 +59,30 @@ namespace shojoinfo
                 {
                     for(int j=0;j<3;j++)
                     {
+                        if (name == "0" && j > 0)
+                            break;
+                        if (i == 0 && j == 0 && name == "1")
+                            continue;
                         Button a = new Button();
                         string buttonname = "";
                         buttonname += name+'-'+(i+1).ToString();
                         switch(j)
                         {
                             case 1:
+                                if (i == 4 || i == 5)
+                                    continue;
                                 buttonname += 'E';
                                 break;
                             case 2:
+                                if (i == 4 || i == 5)
+                                    continue;
                                 buttonname += 'N';
                                 break;
                         }
                         a.Text = buttonname;
                         a.Size = new Size(80, 30);
                         a.Click += buttonEvent;
-                        layout.Controls.Add(a);
+                        layout.Controls.Add(a,j,i);
                     }
                 }
                 Text = name;

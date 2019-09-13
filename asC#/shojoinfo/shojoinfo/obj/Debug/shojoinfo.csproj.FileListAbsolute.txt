@@ -8,4 +8,3 @@ D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.csproj.CoreCompileInpu
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.exe
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.pdb
 D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Shojoinfo.resources
-D:\shojoinfo\asC#\shojoinfo\shojoinfo\obj\Debug\shojoinfo.Form2.resources

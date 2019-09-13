@@ -134,7 +134,7 @@ def newfile():
         find.init(num)
         while find.text.find('href') != -1:
             find.clear()
-            f.write(find.name+" "+find.addr+"\n")
+            f.write(find.name+"\n"+find.addr+"\n")
             print("name :"+find.name + find.addr)
         tablenum+=5
         if num==1:
@@ -142,7 +142,7 @@ def newfile():
         if num==10:
             tablenum-=1
         num+=1
-    f.write("1-4N https://jabjang.tistory.com/150")
+    f.write("1-4N\nhttps://jabjang.tistory.com/150")
     f.close()
 
 def test():
