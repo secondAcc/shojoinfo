@@ -101,49 +101,55 @@ class newfile_info():
         self.name = ""
         self.addr = ""
         self.text = l
-
-    def init(self):
+        self.stage=""
+    def init(self,num):
+        self.stage=str(num)
         self.text = self.text[:self.text.find('<th>')]
         self.text = self.text[self.text.find('MIDNIGHT'):]
     def clear(self):
         self.text = self.text[self.text.find('href'):]
-        print(self.text)
 
         self.addr = self.text[self.text.find('"'):self.text.find('" target')+1]
-        self.addr = self.addr[self.addr.find('"'):self.addr.find('" style')]
-
-        #while self.text.find('217);">') not 1:
+        self.addr = self.addr[self.addr.find('"')+1:self.addr.find('" style')]
         self.text = self.text[self.text.find('217);">') + 7:]
-        if self.text[3]!='E':
-            self.text = self.text[self.text.find('217);">') + 7:]
-            self.text = self.text[self.text.find('217);">') + 7:]
-        print("text :"+self.text)
+        self.text=self.text[self.text.find(self.stage+"-"):]
         self.name = self.text[:self.text.find('</')]
 
 
 def newfile():
+    f=open("resource.txt",'w')
     url = "https://jabjang.tistory.com/478"
     driver.get(url)
     html = driver.page_source
     html = bs(html, 'html.parser')
-
-    select = 'div.article > div.tt_article_useless_p_margin > div > table > tbody'
-    find = newfile_info(str(html.select(select)))
-    find.init()
-    while find.text.find('href') != -1:
-        find.clear()
-        print("name :"+find.name + find.addr)
+    tablenum=11
+    num=0
+    while num<=11:
+        select="div.article > div.tt_article_useless_p_margin > "
+        if num==1:
+            select+="div:nth-child(16) > table > tbody"
+        else:
+            select+="table:nth-child(%d) > tbody"%tablenum
+        find = newfile_info(str(html.select(select)))
+        find.init(num)
+        while find.text.find('href') != -1:
+            find.clear()
+            f.write(find.name+" "+find.addr+"\n")
+            print("name :"+find.name + find.addr)
+        tablenum+=5
+        if num==1:
+            tablenum+=3
+        if num==10:
+            tablenum-=1
+        num+=1
+    f.write("1-4N https://jabjang.tistory.com/150")
+    f.close()
 
 def test():
-    url="https://jabjang.tistory.com/478"
-    driver.get(url)
-    html = driver.page_source
-    html = bs(html, 'html.parser')
+    a=10
+    print(str(a)+"-")
 
-    select ='div.article > div.tt_article_useless_p_margin'
-    print(html.select(select))
-print("init end")
-code = ''
+code=""
 while code != 'exit':
     print(">>>", end='')
     code = input()
